@@ -1,4 +1,4 @@
-package com.serverapp.ServerApp.api.model;
+package com.serverapp.ServerApp.measurement;
 
 public enum MeasurementTypes {
     PRESSURE,

@@ -1,5 +1,6 @@
-package com.serverapp.ServerApp.api.model;
+package com.serverapp.ServerApp.measurement;
 
+import com.serverapp.ServerApp.sensor.Sensor;
 import jakarta.persistence.*;
 import java.util.List;
 

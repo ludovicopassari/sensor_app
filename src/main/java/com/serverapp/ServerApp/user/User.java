@@ -1,4 +1,4 @@
-package com.serverapp.ServerApp.api.model;
+package com.serverapp.ServerApp.user;
 
 import jakarta.persistence.*;
 

@@ -1,14 +1,20 @@
-package com.serverapp.ServerApp.api.model;
+package com.serverapp.ServerApp.device;
 
+/*DEPENDENCIES IMPORT*/
+import com.serverapp.ServerApp.sensor.Sensor;
+import com.serverapp.ServerApp.measurement.Measurement;
+import com.serverapp.ServerApp.user.User;
 import jakarta.persistence.*;
+
+/*ANNOTATION IMPORT*/
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import  java.util.List;
 
+
 /**
  * Definiamo una classe che verrà mappata sulla tabella device del DB"
- *
  * In questa implementazione assumiamo che un Device possa essere posseduto da un User ne possa possedere N.
  */
 
@@ -33,7 +39,7 @@ public class Device {
     @JoinTable(name = "mounted_sensors", joinColumns = @JoinColumn(name = "device_id"), inverseJoinColumns = @JoinColumn(name = "sensor_id"))   //serve a definire la terza tabella(JoinTable) i cui appariranno
     private List<Sensor> sensors;
 
-    @OneToMany(mappedBy = "device")
+    @OneToMany(mappedBy = "device") //questo specifica una relazione 1 a N per rappresentare il fatto che un Device effettuà N misurazioni
     private List<Measurement> measurements;
 
     @CreationTimestamp

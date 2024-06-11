@@ -1,6 +1,7 @@
 package com.serverapp.ServerApp.user;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 /**
  * Definiamo una classe che verrà mappata sulla tabella "user" del DB.
@@ -9,9 +10,10 @@ import jakarta.persistence.*;
  */
 
 
-
+@Data
 @Entity // dice a Spring che questa classe verrà mappata su una entità del un DB
-@Table(name = "user")
+@Table(name = "user", uniqueConstraints = {@UniqueConstraint(columnNames = {"email", "username"})})
+
 // todo qui puoi implemntare l'ereditarietà creando una classe persona che viene estesa da User
 // todo implemntiamo anche il polimorfismo inventandoci qualche metodo di cui fare override
 public class User {

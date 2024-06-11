@@ -12,6 +12,8 @@ import jakarta.persistence.*;
 
 @Entity // dice a Spring che questa classe verrà mappata su una entità del un DB
 @Table(name = "user")
+// todo qui puoi implemntare l'ereditarietà creando una classe persona che viene estesa da User
+// todo implemntiamo anche il polimorfismo inventandoci qualche metodo di cui fare override
 public class User {
 
     @Id //dice a Spring di usare questa variabile di istanza come chiave primaria dell'entità

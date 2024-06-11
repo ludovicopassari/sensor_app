@@ -1,5 +1,6 @@
 package com.serverapp.ServerApp.mqtt;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -11,9 +12,13 @@ import org.springframework.context.annotation.Bean;
 @Configuration
 public class MqttConfig {
 
+    @Value("${mqtt.broker.url}")
+    private String brokerURL;
+
+
     @Bean
     public MqttClient mqttClient() throws Exception {
-        MqttClient client = new MqttClient("tcp://node-101.duckdns.org:1883", MqttClient.generateClientId(), new MemoryPersistence());
+        MqttClient client = new MqttClient(brokerURL, MqttClient.generateClientId(), new MemoryPersistence());
         MqttConnectOptions options = new MqttConnectOptions();
         options.setCleanSession(true);
         client.connect(options);

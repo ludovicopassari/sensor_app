@@ -21,4 +21,40 @@ public class MeasurementType {
 
     @ManyToMany(mappedBy = "measurementTypes")
     private List<Sensor> sensors;
+
+    @OneToMany(mappedBy = "type")
+    private List <Measurement> measurements;
+
+    public long getIdMeasurementType() {
+        return idMeasurementType;
+    }
+
+    public void setIdMeasurementType(long idMeasurementType) {
+        this.idMeasurementType = idMeasurementType;
+    }
+
+    public MeasurementTypes getMeasurementType() {
+        return measurementType;
+    }
+
+    public MeasurementType setMeasurementType(MeasurementTypes measurementType) {
+        this.measurementType = measurementType;
+        return null;
+    }
+
+    public List<Sensor> getSensors() {
+        return sensors;
+    }
+
+    public void setSensors(List<Sensor> sensors) {
+        this.sensors = sensors;
+    }
+
+    public List<Measurement> getMeasurements() {
+        return measurements;
+    }
+
+    public void setMeasurements(List<Measurement> measurements) {
+        this.measurements = measurements;
+    }
 }
